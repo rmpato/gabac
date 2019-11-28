@@ -4,9 +4,9 @@ date: 2019-11-28T15:15:14-03:00
 draft: false
 ---
 
-Whether you are writing a tutorial post on some blog, being able to further reproduce a set of commands, just taking personal notes, or whatever the reason, it is helpful to record your terminal session, with all its commands and outputs.    
+Whether you are writing a tutorial post on some blog, willing being able to reproduce a set of commands, just taking personal notes, or whatever the reason, it is helpful to record your terminal session, with all its commands and outputs.    
 
-For such a task, I've come across the `script` command, which acording to its man page, just makes a typescript of terminal session.
+For such a task, I've come across the `script` command, which according to its man page, just makes a typescript of terminal session.
 
 You can start with a minimal expression, such as 
 
