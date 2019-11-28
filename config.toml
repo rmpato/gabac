@@ -6,7 +6,7 @@ theme = "athena"
 
 [params]
 description = "mantained by Pato"
-dateform = "Jan 2, 2006"
+dateform = "Nov 28, 2019"
 disable_next_prev = true
-github_repo = "therepo"
+github_repo = "gabac"
 github_username = "rmpato"
