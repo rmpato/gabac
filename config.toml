@@ -1,0 +1,44 @@
+languageCode = "en-us"
+title = "Great, another blog about coding!"
+baseurl = "https://gabac.now.sh/"
+canonifyurls = true
+theme = "hugo-kiera"
+
+paginate = 5
+
+summaryLength = 30
+enableEmoji = true
+pygmentsCodeFences = true
+
+# Note: to disable a social network icon delete or comment out the corresponding line
+[author]
+    name = "Pato"
+    github = "rmpato"
+    #gitlab = "username"
+    #linkedin = "username"
+    #facebook = "username"
+    twitter = "patao_"
+    #instagram = "username"
+    #stackoverflow = "username"
+    #youtube = "user/username" # or channel/channelname
+
+[params]
+    tagline = "I can't believe it, another blog about coding!"
+    description = "Kiera: A Hugo theme for creative and technical writing."
+    #images = [""] #This is used for opengraph/twitter cards.
+    customCSS = []  #Optional Customised CSS
+    #favicon = ""
+
+# uncomment to enable the Tags link on the main toolbar
+#  [[menu.main]]
+#    identifier = "tags"
+#    name = "Tags"
+#    url = "tags"
+#    weight = 1
+
+# uncomment to enable the Categories link on the main toolbar
+#  [[menu.main]]
+#    identifier = "categories"
+#    name = "Categories"
+#    url = "categories"
+#    weight = 1
