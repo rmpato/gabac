@@ -1,4 +1,4 @@
-baseURL = "https://gabac.now.sh"
+baseURL = "https://gabac.blog"
 languageCode = "en-us"
 title = "Great, another blog about coding!"
 theme = "athena"
