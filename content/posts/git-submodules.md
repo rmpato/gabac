@@ -28,34 +28,34 @@ A simple yet useful approach with submodules.
 
 So, this is what we'll be doing:
 
-1. Create a new repo 
-2. Add in every repo we want to manage as a submodule
-3. Checkout a branch on every submodule/repo - one command!
-4. Get the status of each submodule from top-level repo - one command!
-5. Check all submodule repos status - one command!
-6. Pull changes for every submodule - one command! 
+- Create a new repo 
+- Add in every repo we want to manage as a submodule
+- Checkout a branch on every submodule/repo - one command!
+- Get the status of each submodule from top-level repo - one command!
+- Check all submodule repos status - one command!
+- Pull changes for every submodule - one command! 
 
 Alright then, let's do it!
 
-1. Create a new repo. cd into a new dir, and init a new repo. 
+- Create a new repo. cd into a new dir, and init a new repo. 
 
 ```
 mkdir platform-repo && git init
 ```  
 
-2. Add every repo you want to control as a submodule (repeat as many times as repos you wish to add). Each repo will be mounted in a new directory (similarly as git clone does).
+- Add every repo you want to control as a submodule (repeat as many times as repos you wish to add). Each repo will be mounted in a new directory (similarly as git clone does).
 
 ```
 git submodule add repo_url
 ```  
 
-3. Now, we need to point our submodules to a branch. Depending on your git version, by default submodules have a detached head (meaning they don't point to any branch). I'm assuming you would be pointing them  to either `dev` or `master` branch, but you can point them to wichever branch you wish to.
+- Now, we need to point our submodules to a branch. Depending on your git version, by default submodules have a detached head (meaning they don't point to any branch). I'm assuming you would be pointing them  to either `dev` or `master` branch, but you can point them to wichever branch you wish to.
 
 ```
 git submodule foreach git checkout dev
 ```  
 
-4. Check the status of the submodules: from the 'top-level' repo, just run: 
+- Check the status of the submodules: from the 'top-level' repo, just run: 
 
 ```
 git status
@@ -63,14 +63,12 @@ git status
 
     It will show every submodule and its status. As you work on your submodules, you will see different statuses: new commits (since the moment you add them as submodules), untracked changes (not commited, nor staged), or yet pristine.  
 
-     When a submodule shows new commits, it means it has them since the moment you added the submodule to the top-level repo. It works like this, because the top-level repo holds a reference to a commit in the submodule repo, and when it detects newer commits than the one it is holding its reference into, it shows the difference.
+    When a submodule shows new commits, it means it has them since the moment you added the submodule to the top-level repo. It works like this, because the top-level repo holds a reference to a commit in the submodule repo, and when it detects newer commits than the one it is holding its reference into, it shows the difference.
      
-     If you want it to show no new commits, you just need to create a commit in the top-level repo. You can read more about that [here](https://unix.stackexchange.com/questions/214879/git-submodule-shows-new-commits-submodule-status-says-nothing-to-commit). 
+    If you want it to show no new commits, you just need to create a commit in the top-level repo. You can read more about that [here](https://unix.stackexchange.com/questions/214879/git-submodule-shows-new-commits-submodule-status-says-nothing-to-commit). 
      
      
-
-
-5. If you want to see each submodule status as if it were an independant repo, you should:
+- If you want to see each submodule status as if it were an independant repo, you should:
 
 ```
 git foreach submodule git status
@@ -78,7 +76,7 @@ git foreach submodule git status
 
     And you are golden. 
 
-6. Pull changes for every submodule
+- Pull changes for every submodule
 
 ```
 git foreach submodule git pull --rebase --autostash origin branch_name
