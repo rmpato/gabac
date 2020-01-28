@@ -41,24 +41,26 @@ Alright then, let's do it!
 
 ```
 mkdir platform-repo && git init
-```
+```  
+
 2. Add every repo you want to control as a submodule (repeat as many times as repos you wish to add). Each repo will be mounted in a new directory (similarly as git clone does).
 
 ```
 git submodule add repo_url
-```
+```  
 
 3. Now, we need to point our submodules to a branch. Depending on your git version, by default submodules have a detached head (meaning they don't point to any branch). I'm assuming you would be pointing them  to either `dev` or `master` branch, but you can point them to wichever branch you wish to.
 
 ```
 git submodule foreach git checkout dev
-```
+```  
 
 4. Check the status of the submodules: from the 'top-level' repo, just run: 
 
 ```
 git status
-```
+```  
+
     It will show every submodule and its status. As you work on your submodules, you will see different statuses: new commits (since the moment you add them as submodules), untracked changes (not commited, nor staged), or yet pristine.  
 
      When a submodule shows new commits, it means it has them since the moment you added the submodule to the top-level repo. It works like this, because the top-level repo holds a reference to a commit in the submodule repo, and when it detects newer commits than the one it is holding its reference into, it shows the difference.
@@ -72,14 +74,16 @@ git status
 
 ```
 git foreach submodule git status
-```
+```  
+
     And you are golden. 
 
 6. Pull changes for every submodule
 
 ```
 git foreach submodule git pull --rebase --autostash origin branch_name
-```
+```  
+    
     This way, `--autostash` will assure to add your changes to stash, pull, then rebase on your branch and pop changes out of stash. And all of that automatically, so you don't need to commit or stash your changes manually. 
 
     This is useful because when running commands with the `git foreach submodule command` expression, if the command exits with an error code, it might cancel the whole foreach chain. This way we ensure it doesn't exit as an error, by reducing chances for failling of the pull.
