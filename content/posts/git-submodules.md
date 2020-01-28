@@ -38,19 +38,16 @@ So, this is what we'll be doing:
 Alright then, let's do it!
 
 1. Create a new repo. cd into a new dir, and init a new repo. 
- 
  ```
  mkdir platform-repo && git init
  ```
 
 2. Add every repo you want to control as a submodule (repeat as many times as repos you wish to add). Each repo will be mounted in a new directory (similarly as git clone does).
- 
  ```
  git submodule add repo_url
  ```
 
 3. Now, we need to point our submodules to a branch. Depending on your git version, by default submodules have a detached head (meaning they don't point to any branch). I'm assuming you would be pointing them  to either `dev` or `master` branch, but you can point them to wichever branch you wish to.
- 
  ```
  git submodule foreach git checkout dev
  ```
