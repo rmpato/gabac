@@ -6,7 +6,7 @@ draft: false
 
 Git submodules are a gray area to me: not because of how they work, but because of identifying a situation they suit up nicely, and that is, without feeling I'm complicating things unnecessarily. 
 
-Some time ago I wrote [this article](http://somewhereintheweb.com), which is kind of a sloppy solution to a problem that deserved a better one. So, now I've got time to revisit it, and yes: this time we approach with (oh, you got it already!) git submodules!
+Some time ago I wrote [this article](https://gabac.blog/posts/git-pull-many-repos-at-once/), which is kind of a sloppy solution to a problem that deserved a better one. So, now I've got time to revisit it, and yes: this time we approach with (oh, you got it already!) git submodules!
 
 Now, instead of running this hard to memorize and not so extensible command I came up with before:
 
