@@ -4,6 +4,8 @@ date: 2019-12-03T14:16:22-03:00
 draft: false
 ---
 
+**Note**: I recommend reading [this post](https://gabac.blog/posts/git-submodules/) for a better solution. 
+
 I usually work with many repos at the same time and generally group them within a same directory, named after the company. 
 
 In example, if I'm working for "Great Employer INC." I'll have a directory probably named `greatemployerinc` and one directory for each repo I work within. Something like:
