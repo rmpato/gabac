@@ -28,63 +28,54 @@ A simple yet useful approach with submodules.
 
 So, this is what we'll be doing:
 
-- Create a new repo 
-- Add in every repo we want to manage as a submodule
-- Checkout a branch on every submodule/repo - one command!
-- Get the status of each submodule from top-level repo - one command!
-- Check all submodule repos status - one command!
-- Pull changes for every submodule - one command! 
+1. Create a new repo 
+2. Add in every repo we want to manage as a submodule
+3. Checkout a branch on every submodule/repo - one command!
+4. Get the status of each submodule from top-level repo - one command!
+5. Check all submodule repos status - one command!
+6. Pull changes for every submodule - one command! 
 
 Alright then, let's do it!
 
-- Create a new repo. cd into a new dir, and init a new repo. 
+1. Create a new repo. cd into a new dir, and init a new repo. 
+ 
+ ```
+ mkdir platform-repo && git init
+ ```
 
-```
-mkdir platform-repo && git init
-```  
+2. Add every repo you want to control as a submodule (repeat as many times as repos you wish to add). Each repo will be mounted in a new directory (similarly as git clone does).
+ 
+ ```
+ git submodule add repo_url
+ ```
 
-- Add every repo you want to control as a submodule (repeat as many times as repos you wish to add). Each repo will be mounted in a new directory (similarly as git clone does).
+3. Now, we need to point our submodules to a branch. Depending on your git version, by default submodules have a detached head (meaning they don't point to any branch). I'm assuming you would be pointing them  to either `dev` or `master` branch, but you can point them to wichever branch you wish to.
+ 
+ ```
+ git submodule foreach git checkout dev
+ ```
 
-```
-git submodule add repo_url
-```  
-
-- Now, we need to point our submodules to a branch. Depending on your git version, by default submodules have a detached head (meaning they don't point to any branch). I'm assuming you would be pointing them  to either `dev` or `master` branch, but you can point them to wichever branch you wish to.
-
-```
-git submodule foreach git checkout dev
-```  
-
-- Check the status of the submodules: from the 'top-level' repo, just run: 
-
-```
-git status
-```  
-
-    It will show every submodule and its status. As you work on your submodules, you will see different statuses: new commits (since the moment you add them as submodules), untracked changes (not commited, nor staged), or yet pristine.  
-
-    When a submodule shows new commits, it means it has them since the moment you added the submodule to the top-level repo. It works like this, because the top-level repo holds a reference to a commit in the submodule repo, and when it detects newer commits than the one it is holding its reference into, it shows the difference.
+4. Check the status of the submodules: from the 'top-level' repo, just run: 
+ ```
+ git status
+ ``` 
+It will show every submodule and its status. As you work on your submodules, you will see different statuses: new commits (since the moment you add them as submodules), untracked changes (not commited, nor staged), or yet pristine.  
+When a submodule shows new commits, it means it has them since the moment you added the submodule to the top-level repo. It works like this, because the top-level repo holds a reference to a commit in the submodule repo, and when it detects newer commits than the one it is holding its reference into, it shows the difference.
+If you want it to show no new commits, you just need to create a commit in the top-level repo. You can read more about that [here](https://unix.stackexchange.com/questions/214879/git-submodule-shows-new-commits-submodule-status-says-nothing-to-commit). 
      
-    If you want it to show no new commits, you just need to create a commit in the top-level repo. You can read more about that [here](https://unix.stackexchange.com/questions/214879/git-submodule-shows-new-commits-submodule-status-says-nothing-to-commit). 
-     
-     
-- If you want to see each submodule status as if it were an independant repo, you should:
+5. If you want to see each submodule status as if it were an independant repo, you should:
+ ```
+ git foreach submodule git status
+ ```
+ And you are golden.
 
-```
-git foreach submodule git status
-```  
 
-    And you are golden. 
-
-- Pull changes for every submodule
-
-```
-git foreach submodule git pull --rebase --autostash origin branch_name
-```  
-    
-    This way, `--autostash` will assure to add your changes to stash, pull, then rebase on your branch and pop changes out of stash. And all of that automatically, so you don't need to commit or stash your changes manually. 
-
-    This is useful because when running commands with the `git foreach submodule command` expression, if the command exits with an error code, it might cancel the whole foreach chain. This way we ensure it doesn't exit as an error, by reducing chances for failling of the pull.
+6. Pull changes for every submodule
+ ```
+ git foreach submodule git pull --rebase --autostash origin branch_name
+ ```
+ This way, `--autostash` will assure to add your changes to stash, pull, then rebase on your branch and pop changes out of stash. And all of that automatically, so you don't need to commit or stash your changes manually.   
+ This is useful because when running commands with the `git foreach submodule command` expression, if the command exits with an error code, it might cancel the whole foreach chain. This way we ensure it doesn't exit as an error, by reducing chances for failling of the pull.
 
 ## Other cases
 
