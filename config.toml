@@ -5,7 +5,7 @@ theme = "athena"
 
 
 [params]
-description = "mantained by Pato"
+description = "and that is sarcasm"
 dateform = "Jan 2, 2006"
 disable_next_prev = true
 github_repo = "gabac"

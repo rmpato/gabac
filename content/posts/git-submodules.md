@@ -62,7 +62,7 @@ If you want it to show no new commits, you just need to create a commit in the t
      
 5. If you want to see each submodule status as if it were an independant repo, you should:
  ```
- git foreach submodule git status
+ git submodule foreach git status
  ```
  And you are golden.
 
