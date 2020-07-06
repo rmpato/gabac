@@ -66,10 +66,9 @@ If you want it to show no new commits, you just need to create a commit in the t
  ```
  And you are golden.
 
-
 6. Pull changes for every submodule
  ```
- git foreach submodule git pull --rebase --autostash origin branch_name
+ git submodule foreach git pull --rebase --autostash origin branch_name
  ```
  This way, `--autostash` will assure to add your changes to stash, pull, then rebase on your branch and pop changes out of stash. And all of that automatically, so you don't need to commit or stash your changes manually.   
  This is useful because when running commands with the `git foreach submodule command` expression, if the command exits with an error code, it might cancel the whole foreach chain. This way we ensure it doesn't exit as an error, by reducing chances for failling of the pull.
